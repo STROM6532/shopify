@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STROMZEN | Premium Smart Products</title>
+<meta name="description" content="STROMZEN offers premium, smart, and elegantly designed products for discerning modern living in India.">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* =====================
+   GLOBAL STYLES
+===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f8f9fc;
+    color: #1a1a1a;
+    line-height: 1.7;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+/* =====================
+   SMOOTH SCROLL
+===================== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* =====================
+   HEADER & NAVIGATION
+===================== */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 40px rgba(0,0,0,0.05);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+header.scrolled {
+    padding: 15px 8%;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 5px 50px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: #1a1a1a;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+nav a {
+    text-decoration: none;
+    color: #4a5568;
+    margin-left: 40px;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    transition: width 0.3s ease;
+}
+
+nav a:hover {
+    color: #1a1a1a;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* =====================
+   HERO SECTION
+===================== */
+.hero {
+    padding: 140px 8% 120px;
+    text-align: center;
+    background: linear-gradient(135deg, #f8f9fc 0%, #e2e8f0 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(118, 75, 162, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.hero h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeUp 1.2s 0.2s ease forwards;
+}
+
+.hero h2 span {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: 0 auto 40px;
+    font-size: 20px;
+    color: #4a5568;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeUp 1.2s 0.5s ease forwards;
+}
+
+.hero .btn {
+    display: inline-block;
+    padding: 16px 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeUp 1.2s 0.8s ease forwards;
+}
+
+.hero .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
+}
+
+/* =====================
+   ANIMATIONS
+===================== */
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* =====================
+   SECTION COMMON
+===================== */
+section {
+    padding: 100px 8%;
+}
+
+.section-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    margin-bottom: 70px;
+    color: #1a1a1a;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* =====================
+   FEATURES SECTION
+===================== */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.feature-card {
+    background: #fff;
+    padding: 45px 30px;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeUpCard 0.8s ease forwards;
+}
+
+.feature-card:nth-child(1) { animation-delay: 0.1s; }
+.feature-card:nth-child(2) { animation-delay: 0.2s; }
+.feature-card:nth-child(3) { animation-delay: 0.3s; }
+.feature-card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeUpCard {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.feature-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+}
+
+.feature-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.feature-card p {
+    color: #4a5568;
+    font-size: 16px;
+}
+
+/* =====================
+   PRODUCTS SECTION
+===================== */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 35px;
+}
+
+.product-card {
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeUpCard 0.8s ease forwards;
+}
+
+.product-card:nth-child(n+1) { animation-delay: calc(0.1s * var(--n)); }
+
+.product-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.15);
+}
+
+.product-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: contain;
+    padding: 25px;
+    transition: transform 0.4s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+.product-card h4 {
+    text-align: center;
+    padding: 20px 20px 10px;
+    color: #1a1a1a;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.product-card p {
+    text-align: center;
+    padding-bottom: 25px;
+    font-weight: 700;
+    color: #667eea;
+    font-size: 22px;
+}
+
+/* =====================
+   ABOUT & CONTACT
+===================== */
+.about, .contact {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+    font-size: 18px;
+    color: #4a5568;
+    line-height: 1.8;
+}
+
+.about {
+    background: rgba(255,255,255,0.6);
+    padding: 60px;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
+    background: #1a1a1a;
+    color: #a0aec0;
+    padding: 50px 8% 30px;
+    text-align: center;
+    font-size: 15px;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media(max-width: 768px) {
+    .hero h2 { font-size: 40px; }
+    .hero p { font-size: 18px; }
+    nav { display: none; } /* Simplified for mobile */
+    section { padding: 80px 5%; }
+    .features, .products { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header id="header">
+    <h1>STROMZEN</h1>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <h2>Elevate Your Everyday with <span>Premium Smart Living</span></h2>
+    <p>Discover exquisitely crafted, intelligent products that blend sophistication, innovation, and effortless functionality for the modern discerning lifestyle.</p>
+    <a href="#products" class="btn">Discover Collection</a>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+    <h2 class="section-title">Why STROMZEN?</h2>
+    <div class="features">
+        <div class="feature-card">
+            <h3>Timeless Innovation</h3>
+            <p>Engineered with cutting-edge technology to solve everyday challenges with elegant precision.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Exceptional Value</h3>
+            <p>Luxury craftsmanship at accessible prices, without compromising on premium quality.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Refined Aesthetics</h3>
+            <p>Sleek, minimalist designs that complement contemporary interiors seamlessly.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Unwavering Reliability</h3>
+            <p>Built to exceed expectations with durable materials and rigorous quality standards.</p>
+        </div>
+    </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+    <h2 class="section-title">Curated Collection</h2>
+    <div class="products">
+        <!-- Product cards remain the same, but with enhanced styling -->
+       <div class="product-card"><img src="https://gadgetwagon.in/cdn/shop/products/smart-portable-projector-1080p-rechargeable-lcd-android-4k-c750smart-portable-projector-1080p-rechargeable-lcd-android-4k-c750byintek-788617_600x600.jpg?v=1753866912" alt="Mini Projector"><h4>Mini Projector</h4><p>₹2,499</p></div>
+<div class="product-card"><img src="https://www.jiomart.com/images/product/original/rvabrtaoxr/oshee-store-newly-launched-air-buds-2-truly-wireless-earbuds-with-40h-of-playtime-instacharge-10-min-240-min-quad-mic-with-enc-13-mm-driver-and-bt-v5-3-clear-white-product-images-orvabrtaoxr-p600365542-0-202304132356.jpg?im=Resize=(420,420)"><h4>Wireless Earbuds</h4><p>₹899</p></div>
+<div class="product-card"><img src="https://www.jiomart.com/images/product/original/rvnlxcwkrt/savvy-bucket-dz09-smartwatch-black-black-strap-freesize-product-images-orvnlxcwkrt-p599257213-0-202303112155.jpg?im=Resize=(420,420)"><h4>Smart Watch</h4><p>₹1,299</p></div>
+<div class="product-card"><img src="https://www.jiomart.com/images/product/original/rv2a97hbgk/amytel-10000-mah-power-bank-15-w-power-delivery-2-0-power-delivery-3-0-quick-charge-2-0-quick-charge-3-0-white-lithium-ion-product-images-orv2a97hbgk-p612510077-0-202509222345.jpg?im=Resize=(420,420)"><h4>Power Bank 10000mAh</h4><p>₹999</p></div>
+<div class="product-card"><img src="https://www.jiomart.com/images/product/original/494443311/ptron-funk-wave-v1-16-w-bluetooth-soundbar-speaker-stereo-sound-rgb-lights-metal-grill-soundbar-for-phone-tv-laptop-tablets-bt-v5-3-aux-tf-card-usb-playback-tws-pairing-black-digital-o494443311-p610924124-0-202511241036.jpeg?im=Resize=(420,420)"><h4>Bluetooth Speaker</h4><p>₹1,199</p></div>
+
+<div class="product-card"><img src="https://www.jiomart.com/images/product/original/rva28ev7do/weird-wolf-study-lamp-for-students-rechargeable-table-lamp-with-3-colour-modes-led-desk-lamp-for-reading-office-eye-protection-study-light-with-lithium-battery-white-6-month-warranty-product-images-orva28ev7do-p613179094-0-202512181102.jpg?im=Resize=(420,420)"><h4>LED Desk Lamp</h4><p>₹749</p></div>
+<div class="product-card"><img src="https://www.jiomart.com/images/product/original/rv1hybkv2m/desidiya-round-night-light-for-bedroom-bed-side-home-smart-automatic-on-off-dim-led-lights-lamp-stairs-kitchen-bathroom-polycarbonate-white-pack-of-1-product-images-orv1hybkv2m-p611350610-0-202504241510.jpg?im=Resize=(420,420)"><h4>Night Lamp</h4><p>₹299</p></div>
+<div class="product-card"><img src="https://www.jiomart.com/images/product/original/rvvfjf1upq/umake-80w-supervooc-fast-charger-adapter-usb-c-wall-charger-dash-warp-vooc-support-rapid-mobile-charging-safe-multi-protection-product-images-orvvfjf1upq-p612678931-0-202510281645.png?im=Resize=(420,420)"><h4>USB Fast Charger</h4><p>₹399</p></div>
+<div class="product-card"><img src="https://www.jiomart.com/images/product/original/494352952/zebronics-zeb-amaze-2-4ghz-wireless-optical-mouse-black-digital-o494352952-p608848986-0-202511251729.jpeg?im=Resize=(420,420)"><h4>Wireless Mouse</h4><p>₹499</p></div>
+<div class="product-card"><img src="https://www.jiomart.com/images/product/original/rvmlo6s8ka/evofox-katana-x2-fs-mechanical-gaming-keyboard-3-pin-replaceable-clicky-blue-switches-dynamic-backlighting-all-keys-anti-ghosting-volume-knob-copilot-xbox-gamebar-screenshot-more-white-product-images-orvmlo6s8ka-p612444088-0-202509121742.jpg?im=Resize=(420,420)"><h4>Mechanical Keyboard</h4><p>₹1,499</p></div>
+
+<div class="product-card"><img src="https://www.jiomart.com/images/product/original/rvvya4gu2g/nijanam-6-gear-adjustable-laptop-stand-portable-folding-aluminum-alloy-non-slip-laptop-tablet-bracket-stable-structure-product-images-orvvya4gu2g-p609593441-0-202407292012.jpg?im=Resize=(420,420)"><h4>Laptop Stand</h4><p>₹699</p></div>
+<div class="product-card"><img src="https://m.media-amazon.com/images/I/811yqmITNUL._SL1500_.jpg"><h4>Cable Organizer</h4><p>₹199</p></div>
+<div class="product-card"><img src="https://www.jiomart.com/images/product/original/rv7yejzq76/igadg-making-life-simple-multicolor-mini-portable-handheld-car-vacuum-cleaner-powerful-suction-works-on-12v-4-2-metre-cord-product-images-orv7yejzq76-p602907865-0-202307031805.jpg?im=Resize=(420,420)"><h4>Mini Vacuum Cleaner</h4><p>₹1,099</p></div>
+<div class="product-card"><img src="https://m.media-amazon.com/images/I/71bB4dG9mIL._SL1500_.jpg"><h4>Portable USB Fan</h4><p>₹599</p></div>
+<div class="product-card"><img src="https://m.media-amazon.com/images/I/61dhsFpHHVL._SL1500_.jpg"><h4>Smart Plug</h4><p>₹799</p></div>
+
+<div class="product-card"><img src="https://m.media-amazon.com/images/I/61YzFf0E6CL._SL1200_.jpg"><h4>Rechargeable Torch</h4><p>₹449</p></div>
+<div class="product-card"><img src="https://m.media-amazon.com/images/I/513bv-sVEuL._SL1024_.jpg"><h4>Digital Alarm Clock</h4><p>₹699</p></div>
+<div class="product-card"><img src="https://m.media-amazon.com/images/I/61nlIend+3L._SL1500_.jpg"><h4>Wireless Charging Pad</h4><p>₹899</p></div>
+<div class="product-card"><img src="https://m.media-amazon.com/images/I/518r6dSUQxL._SL1024_.jpg"><h4>Webcam</h4><p>₹1,099</p></div>
+<div class="product-card"><img src="https://m.media-amazon.com/images/I/51e58RA-akL._SL1200_.jpg"><h4>Security Camera</h4><p>₹1,499</p></div>
+
+<div class="product-card"><img src="https://m.media-amazon.com/images/I/41ajXEZ8zhL._SL1200_.jpg"><h4>USB Hub</h4><p>₹799</p></div>
+<div class="product-card"><img src="https://m.media-amazon.com/images/I/61aXPfcrzlL._SL1500_.jpg"><h4>Desk Clock</h4><p>₹599</p></div>
+<div class="product-card"><img src="https://www.jiomart.com/images/product/original/rvvzfrc6zb/inditradition-plastic-antigravity-water-droplets-humidifier-ultrasonic-essential-oil-diffuser-for-home-5-x-9-inches-white-product-images-orvvzfrc6zb-p612487990-0-202509190003.jpg?im=Resize=(420,420)"><h4>Aroma Diffuser</h4><p>₹999</p></div>
+<div class="product-card"><img src="https://m.media-amazon.com/images/I/51f1sAlG1tL._SL1080_.jpg"><h4>Electric Kettle</h4><p>₹1,299</p></div>
+<div class="product-card"><img src="https://m.media-amazon.com/images/I/61reTEVac7L._SL1024_.jpg"><h4>Portable Speaker Lamp</h4><p>₹699</p></div>
+
+        <!-- ... Add remaining products with incremental --n values ... -->
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about-section">
+    <h2 class="section-title">About STROMZEN</h2>
+    <p class="about">
+        STROMZEN represents the pinnacle of modern design and intelligent functionality. We curate exceptional products that seamlessly integrate into sophisticated lifestyles, delivering unparalleled quality and innovation to discerning customers across India.
+    </p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+    <h2 class="section-title">Get In Touch</h2>
+    <p class="contact">
+        📧 support@stromzen.com<br><br>
+        🌐 www.stromzen.com<br><br>
+        📍 India
+    </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2026 STROMZEN. All Rights Reserved. | Crafted with Precision</p>
+</footer>
+
+<script>
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+        document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Staggered product animations on scroll (using Intersection Observer for performance)
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationPlayState = 'running';
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.product-card, .feature-card').forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.1}s`;
+        observer.observe(card);
+    });
+</script>
+
+</body>
+</html>
